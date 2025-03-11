@@ -8,6 +8,7 @@
   --font-barlow: "Barlow", "sans-serif";
   --font-barlow-condensed: "Barlow Condensed", "sans-serif";
   --font-bellefair: "Bellefair", "serif";
+  --tracking-biggest: 0.125em;
 }
 
 :root {

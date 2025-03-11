@@ -2,6 +2,34 @@
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import "./src/styles/fonts.css";
 import "./src/styles/global.css";
+import { BaseNavMenu } from "@/components/ui/astro-wrapper/base-nav-menu";
+import { BaseSheetMenu } from "@/components/ui/astro-wrapper/base-sheet-menu";
+import { Image } from "astro:assets";
+
+const menu = [
+  {
+    id: "00",
+    href: "/",
+    label: "HOME",
+  },
+  {
+    id: "01",
+    href: "/destination",
+    label: "DESTINATION",
+  },
+  {
+    id: "02",
+    href: "/crew",
+    label: "CREW",
+  },
+  {
+    id: "03",
+    href: "/technology",
+    label: "TECHNOLOGY",
+  },
+];
+
+import logo from "@/assets/images/shared/logo.svg";
 ---
 
 <script is:inline>
@@ -34,9 +62,16 @@ import "./src/styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Space Tourism</title>
   </head>
   <body>
+    <header
+      class="flex justify-between h-[88px] items-center px-6 sm:h-24 lg:h-36"
+    >
+      <Image src={logo} alt={"space tourism logo"} class={"size-10"} />
+      <BaseSheetMenu client:visible menu={menu} />
+      <BaseNavMenu client:idle menu={menu} />
+    </header>
     <ModeToggle client:load />
     <slot />
   </body>
